@@ -1,0 +1,36 @@
+@startuml
+
+'Only Test !!'
+
+actor User
+skinparam Style strictuml
+
+skinparam Sequence {
+MessageAlignment center
+LifeLineBackgroundColor #ddd
+ArrowColor black
+}
+
+User -> A: Order
+activate A
+
+A -> B : createdOrder()
+activate B
+
+B -> C : furtherJobsReq()
+activate C
+
+C --> B : urtherJobsResp()
+destroy C
+
+B --> A : Return
+deactivate B
+
+A -> A : InformClient()
+
+A --> User : Info
+deactivate A
+
+
+
+@enduml
